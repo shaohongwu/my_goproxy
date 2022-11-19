@@ -1,0 +1,10 @@
+version: "2"
+services:
+  goproxy:
+    image: goproxy/goproxy:latest
+    command: "-listen=0.0.0.0:8081  -cacheDir=/ext -proxy https://goproxy.io  "
+    ports:
+      - "9088:8081"
+    restart: always
+    volumes:
+      - ./cacheDir:/ext
